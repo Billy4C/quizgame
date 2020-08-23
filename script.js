@@ -145,6 +145,8 @@ function buttonClick() {
 
     } else {
         endGame();
+        saveScores();
+
     }
 
     // if (i > )
@@ -163,7 +165,7 @@ function endGame() {
 // not sure how to connect this to scores
 // need to connect it with high scores
 var saveScores = function () {
-    localStorage.setItem("score", JSON.stringify(tasks));
+    localStorage.setItem("score", JSON.stringify(scoreEl));
 }
 var loadScores = function () {
     // gets task items from localStorage

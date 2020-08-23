@@ -11,10 +11,15 @@ color: rgb(26, 70, 138);
 }
 
 .highScore a {
-    color: rgb(219, 15, 15);
-    text-decoration: none;
-    font-weight: bold; 
+    color: rgb(26, 70, 138);
     font-style: italic;   
+    cursor: pointer;
+}
+.highScore a:hover {
+    /* border-color: rgb(26, 70, 138);
+    border-style: solid; */
+    color: rgb(26, 70, 138);
+    font-weight: bold;
 }
 
 #start {
