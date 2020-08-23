@@ -1,3 +1,4 @@
+var dataArr = []
 var body = document.body
 var questionIndex = 0
 var score = 0
@@ -11,6 +12,7 @@ var resultEl = document.getElementById("result")
 var questionEl = document.getElementById("questions")
 var scoreEl = document.getElementById("score");
 var submitScore = document.getElementById("btn")
+var scoreIdCounter =0
 
 function countDown() {
     timeLeft--
@@ -20,6 +22,7 @@ function countDown() {
         timerEl.textContent = message;
         // console.log(message);
         endGame();
+        return timeLeft
     }
 }
 // display Time's up message
@@ -43,6 +46,10 @@ function startQuiz() {
 
 var start = document.getElementById('start')
 start.onclick = startQuiz
+
+var saveScore = document.getElementById('save-score')
+saveScore.onclick = enterScore
+
 
 // questions array
 var questions = [
@@ -118,21 +125,15 @@ function getQuestion() {
             }
             else {
                 resultEl.textContent = "NO!!!";
-                timeLeft -= 5;
+                timeLeft -= 10;
             }
         }
-        console.log(button)
+        // console.log(button)
         choices.appendChild(button)
         // questions[i].question
     }
-    // for loop or foreach loop to show choices and answer
-    // for (i = 0; i , questions.length; i++) {
-    // //     var 
-    // // }
-    // questionIndex++;
+   
 }
-
-
 
 // we want to check to see if button value is correct, increment question index, call get question function to retrieve next question, 
 // check for end condition
@@ -145,11 +146,8 @@ function buttonClick() {
 
     } else {
         endGame();
-        saveScores();
-
+        enterScore();
     }
-
-    // if (i > )
 }
 function endGame() {
     clearInterval(timerId)
@@ -159,25 +157,62 @@ function endGame() {
     scoreEl.removeAttribute("class")
     console.log(scoreEl.textContent)
     questionEl.setAttribute("class", "hide")
-    saveScores();
+    enterScore();
 }
 
 // not sure how to connect this to scores
 // need to connect it with high scores
-var saveScores = function () {
-    localStorage.setItem("score", JSON.stringify(scoreEl));
-}
-var loadScores = function () {
-    // gets task items from localStorage
-    //converts tasks from the stringified format back into the array of objects
-    // iterates through array and creates task elements on the page from it
-    var existingTaskEl = localStorage.getItem('score');
-    existingTaskEl = JSON.parse(existingTaskEl);
-    for (var i = 0; i < existingTasksEl.length; i++);{
-        createTaskEl(existinTasksEl[i]);
+
+function enterScore(){
+    var scoreInitials = document.getElementById("initials").value.trim ();
+    var localStorageData = JSON.parse(localStorage.getItem("highScores"));
+    var scoreDataObj = {
+        initials: scoreInitials,
+        quizScore: timeLeft
     }
-    // console.log(tasks)
+    scoreDataObj.id = scoreIdCounter;
+
+    dataArr.push(scoreDataObj);
+    localStorage.setItem("dataArr", JSON.stringify(dataArr))
+    scoreIdCounter++;
 }
+
+var loadScores = function () {
+    var existingScoreEl = localStorage.getItem("dataArr");
+    existingScoreEl = JSON.parse(existingScoreEl);
+    for (var i = 0; i < existingScoreEl.length; i++) {
+        dataArr.push(existingScoreEl[i]);
+        scoreIdCounter++
+    }
+}
+var createScoreEl = function(){
+    var listItemEl =document.createElement("li");
+    listItemEl.classname = "score-item";
+    listItemEl.setAttribute("data-score-id", scoreIdCounter);
+    
+}
+loadScores();
+
+
+// btn.onclick = enterScore
+
+// var saveScores = function () {
+//     localStorage.setItem("score", JSON.stringify(timeLeft));
+//     console.log(timeLeft)
+// }
+// var loadScores = function () {
+//     // gets task items from localStorage
+//     //converts tasks from the stringified format back into the array of objects
+//     // iterates through array and creates task elements on the page from it
+//     var existingTaskEl = localStorage.getItem('score');
+//     existingTaskEl = JSON.parse(existingTaskEl);
+//     for (var i = 0; i < existingTasksEl.length; i++);{
+//         createTaskEl(existinTasksEl[i]);
+//     }
+    // console.log(tasks)
+// }
+
+
 
 
 // start.onclick = countDown;
