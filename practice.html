@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>setInterval/clearInterval example</title>
+
+  <script>
+    var nIntervId;
+    var count = 0;
+    function changeColor() {
+      nIntervId = setInterval(flashText, 1000);
+    }
+ 
+    function flashText() {
+      var oElem = document.querySelector('.myBox++');
+    //   console.log(oElem);
+    //   oElem.style.color = oElem.style.color === 'red' ? 'blue' : 'red';
+    //   console.log(oElem.style.color);
+      // oElem.style.color == 'red' ? 'blue' : 'red' is a conditional or ternary operator.
+    }
+ 
+    function stopTextColor() {
+      clearInterval(nIntervId);
+    }
+  </script>
+</head>
+ 
+<body onload="changeColor();">
+  <div class="myBox">
+    <p>Hello World</p>
+  </div>
+
+  <button onclick="stopTextColor();">Stop</button>
+  <button onclick="changeColor();">Start</button>
+
+</body>
+</html>

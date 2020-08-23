@@ -1,0 +1,88 @@
+* {
+/* display: block; */
+background-color: rgb(170, 235, 243);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-align: center;
+color: rgb(26, 70, 138);
+}
+
+.hide {
+    display: none;
+}
+
+.highScore a {
+    color: rgb(219, 15, 15);
+    text-decoration: none;
+    font-weight: bold; 
+    font-style: italic;   
+}
+
+#start {
+    color: rgb(26, 70, 138);
+    background-color: rgba(112, 110, 110, 0.11);
+    font-size: 40px;
+    font-weight: 900;
+    padding: 5px;
+    border-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px;
+    opacity: .8;
+}
+
+#start:hover {
+    cursor: pointer;
+    opacity: 1;
+    font-size: 50px;
+}
+
+
+#choices { 
+    display:grid;
+    grid-column: 1;
+    margin: 0 300px;
+    
+}
+
+
+#choices button{
+    color:rgb(246, 249, 250);
+    font-size: 20px;
+    border-radius: 5px;
+    border-style: solid;
+    margin: 10px 20px 10px 20px;
+    border-color: white;
+    background-color: rgb(26, 70, 138);
+    align-items: center;
+    display:inline;
+    padding: 0 0 2px 0;
+    opacity: 1;
+}
+#choices button:hover {
+    cursor: pointer;
+    font-size: 20px;
+    opacity: .8;
+}
+
+
+
+#questionTitle {
+    color: rgb(26, 70, 138);
+    font-size: 50px;
+    text-shadow: white,;
+    
+}
+
+#time {
+    font-size: 50px;
+}
+
+.text-input {
+    margin: 0 0 10px 0;
+    color: rgb(26, 70, 138);
+    background-color: seashell;
+}
+
+.btn {
+    color:white;
+    font-size: 15px;
+}

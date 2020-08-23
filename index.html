@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class ='highScore'>
+        <a href = "highscores.html">View High Scores</a>
+    </div>
+    <div class = "timer">
+        <span id="time"></span>
+    </div>
+    <div class="container">
+        <div id = "startScreen" class="start">
+            <h1>Quiz Game Live!</h1>
+            <button id = "start">START</button>
+        </div>
+        <div id="questions" class="hide">
+            <h2 id = "questionTitle"></h2>
+            <div id = "choices"></div>
+            <div id ="result"></div>
+
+        </div>
+        <div id ="score" class="hide">
+            <form id="score-form">
+                <div class="form-group">
+                    <input type="text" name="score-name" class="text-input" placeholder="Enter Your Initials"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn" id="save-score" type="button" draggable="true">Submit Score</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
